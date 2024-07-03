@@ -1,0 +1,34 @@
+{% extends "base.html "%}
+{% block Divyansh %}
+
+    <table class="container">
+        <tr>
+          <th>Sr Number</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Elidgibiltiy</th>
+        </tr>
+
+        {% for people in peoples %}
+        <tr>
+          <td>{{forloop.counter}}</forloop></td>
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+          <td {% if people.age <= 18 %} style="background-color: rgb(247, 106, 106);" {% else %} style="background-color: rgb(113, 231, 113);" {% endif %}>
+            {% if people.age >= 18 %}
+            👍
+            {% else %}
+            👎
+            {% endif %}
+
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    <p>
+        {{text | truncatechars:15}}
+    </p>
+
+
+
+{% endblock%}
